@@ -1,16 +1,18 @@
 import mongoose from 'mongoose';
 import uuid from 'node-uuid';
 
-const BookingSchema = new mongoose.Schema({
+const Category = new mongoose.Schema({
   _id: {
     required: true,
     type: String,
     unique: true,
     default: () => uuid.v4()
   },
-  randomThing: {
+  name: {
     type: String,
+    required: true,
+    unique: true
   }
 });
 
-export default mongoose.model('Booking', BookingSchema);
+export default mongoose.model('Category', Category);
